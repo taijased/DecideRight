@@ -18,12 +18,12 @@ class TimeViewController: UIViewController {
     @IBOutlet weak var lblTotalCorrect: UILabel!
     
     
-    @IBOutlet weak var btnAnswer0: UIButton!
-    @IBOutlet weak var btnAnswer1: UIButton!
-    @IBOutlet weak var btnAnswer2: UIButton!
-    @IBOutlet weak var btnAnswer3: UIButton!
+    @IBOutlet weak var btnAnswerNumber0: UIButton!
+    @IBOutlet weak var btnAnswerNumber1: UIButton!
+    @IBOutlet weak var btnAnswerNumber2: UIButton!
+    @IBOutlet weak var btnAnswerNumber3: UIButton!
     
-    @IBOutlet weak var lblTimeLeft: UILabel!
+    @IBOutlet weak var lblTimeScore: UILabel!
     
     var firstNumber : Int = 0
     var secondNumber : Int = 0
@@ -53,11 +53,8 @@ class TimeViewController: UIViewController {
         bestCorrect = UserDefaults.standard.integer(forKey: "bestCorrect")
         
         startCounting()
-        
-        randomizeTheNumbers()
-        
+        randomizeTheNumbers()cx
         printButtonText()
-        
         printCorrectIncorrect()
 //        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
@@ -90,7 +87,7 @@ class TimeViewController: UIViewController {
         
         
         timeLeft -= 1
-        lblTimeLeft.text = "\(timeLeft)"
+        lblTimeScore.text = "\(timeLeft)"
         
         if timeLeft == 0 {
             timer.invalidate()
@@ -137,7 +134,7 @@ class TimeViewController: UIViewController {
         
         score = 0
         
-        lblTimeLeft.text = "\(timeLeft)"
+        lblTimeScore.text = "\(timeLeft)"
         lblTotalCorrect.text = "\(score)"
         
         resetButton()
@@ -213,31 +210,31 @@ class TimeViewController: UIViewController {
     
     func printButtonText() {
         if buttonCorrect == 0 {
-            btnAnswer0.setTitle("\(answer)", for: .normal)
-            btnAnswer1.setTitle("\(incorrectAnswer1)", for: .normal)
-            btnAnswer2.setTitle("\(incorrectAnswer2)", for: .normal)
-            btnAnswer3.setTitle("\(incorrectAnswer3)", for: .normal)
+            btnAnswerNumber0.setTitle("\(answer)", for: .normal)
+            btnAnswerNumber1.setTitle("\(incorrectAnswer1)", for: .normal)
+            btnAnswerNumber2.setTitle("\(incorrectAnswer2)", for: .normal)
+            btnAnswerNumber3.setTitle("\(incorrectAnswer3)", for: .normal)
         }
         
         if buttonCorrect == 1 {
-            btnAnswer1.setTitle("\(answer)", for: .normal)
-            btnAnswer0.setTitle("\(incorrectAnswer3)", for: .normal)
-            btnAnswer2.setTitle("\(incorrectAnswer2)", for: .normal)
-            btnAnswer3.setTitle("\(incorrectAnswer1)", for: .normal)
+            btnAnswerNumber1.setTitle("\(answer)", for: .normal)
+            btnAnswerNumber0.setTitle("\(incorrectAnswer3)", for: .normal)
+            btnAnswerNumber2.setTitle("\(incorrectAnswer2)", for: .normal)
+            btnAnswerNumber3.setTitle("\(incorrectAnswer1)", for: .normal)
         }
         
         if buttonCorrect == 2 {
-            btnAnswer2.setTitle("\(answer)", for: .normal)
-            btnAnswer1.setTitle("\(incorrectAnswer1)", for: .normal)
-            btnAnswer0.setTitle("\(incorrectAnswer3)", for: .normal)
-            btnAnswer3.setTitle("\(incorrectAnswer2)", for: .normal)
+            btnAnswerNumber2.setTitle("\(answer)", for: .normal)
+            btnAnswerNumber1.setTitle("\(incorrectAnswer1)", for: .normal)
+            btnAnswerNumber0.setTitle("\(incorrectAnswer3)", for: .normal)
+            btnAnswerNumber3.setTitle("\(incorrectAnswer2)", for: .normal)
         }
         
         if buttonCorrect == 3 {
-            btnAnswer3.setTitle("\(answer)", for: .normal)
-            btnAnswer1.setTitle("\(incorrectAnswer3)", for: .normal)
-            btnAnswer2.setTitle("\(incorrectAnswer1)", for: .normal)
-            btnAnswer0.setTitle("\(incorrectAnswer2)", for: .normal)
+            btnAnswerNumber3.setTitle("\(answer)", for: .normal)
+            btnAnswerNumber1.setTitle("\(incorrectAnswer3)", for: .normal)
+            btnAnswerNumber2.setTitle("\(incorrectAnswer1)", for: .normal)
+            btnAnswerNumber0.setTitle("\(incorrectAnswer2)", for: .normal)
         }
     }
     
